@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "983318810600",
+    "firebase_url": "https://habita-5b7e2-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "habita-5b7e2",
+    "storage_bucket": "habita-5b7e2.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:983318810600:android:7b8b111f635989ce161e5d",
+        "android_client_info": {
+          "package_name": "seifemadhamdy.habita"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDdkVU-yEzNhdPpQeu3DgKmEa9KB-TYBbc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

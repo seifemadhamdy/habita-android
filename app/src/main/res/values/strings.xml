@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Habita</string>
+    <string name="home">Home</string>
+    <string name="authentication">Authentication</string>
+</resources>
