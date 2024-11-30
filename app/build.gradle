@@ -4,6 +4,14 @@ plugins {
 }
 
 android {
+    signingConfigs {
+        release {
+            storeFile file('../habita-release-keystore.jks')
+            keyAlias 'habita_release'
+            storePassword 'TrackYour@Hab1ts!&NeverQuit'
+            keyPassword 'TrackYour@Hab1ts!&NeverQuit'
+        }
+    }
     namespace 'seifemadhamdy.habita'
     compileSdk 35
 
@@ -18,8 +26,10 @@ android {
 
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
+            shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.getByName("release")
         }
     }
 
