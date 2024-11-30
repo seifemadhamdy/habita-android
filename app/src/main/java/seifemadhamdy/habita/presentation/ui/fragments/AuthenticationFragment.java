@@ -49,6 +49,16 @@ public class AuthenticationFragment extends Fragment {
             .get(AuthenticationViewModel.class);
 
     authenticationViewModel
+        .getFirebaseUser()
+        .observe(
+            getViewLifecycleOwner(),
+            firebaseUser -> {
+              if (firebaseUser != null) {
+                navigateToHome();
+              }
+            });
+
+    authenticationViewModel
         .getEmail()
         .observe(
             getViewLifecycleOwner(),
@@ -116,10 +126,6 @@ public class AuthenticationFragment extends Fragment {
 
     binding.continueButton.setOnClickListener(
         _ -> authenticationViewModel.continueWithEmailAndPassword(requireActivity()));
-
-    authenticationViewModel
-        .getFirebaseUser()
-        .observe(getViewLifecycleOwner(), _ -> navigateToHome());
 
     authenticationViewModel
         .getErrorMessage()

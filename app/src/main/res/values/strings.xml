@@ -9,4 +9,12 @@
     <string name="continue_help_message">Clicking \'Continue\' will sign you into your existing account or create a new one with the provided credentials.</string>
     <string name="password_help_message">"At least 8 characters, with an uppercase letter, a digit, a special character, and no spaces."</string>
     <string name="email_help_message">"Valid email format."</string>
+    <string name="new_habit">"New habit"</string>
+    <string name="sign_out">"Sign out"</string>
+    <string name="add">Add</string>
+    <string name="cancel">Cancel</string>
+    <string name="name">Name</string>
+    <string name="mark_as_completed">Mark as completed</string>
+    <string name="empty_habit_name_error">Cannot add a habit with an empty name</string>
+    <string name="habit_completion_status">You completed \'%1$s\' for today!</string>
 </resources>

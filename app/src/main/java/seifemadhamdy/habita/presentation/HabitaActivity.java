@@ -9,17 +9,12 @@ import androidx.core.splashscreen.SplashScreen;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.navigation.NavController;
-import androidx.navigation.NavOptions;
 import androidx.navigation.fragment.NavHostFragment;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import java.util.Objects;
 import seifemadhamdy.habita.R;
 import seifemadhamdy.habita.databinding.ActivityHabitaBinding;
 
 public class HabitaActivity extends AppCompatActivity {
   private NavController navController;
-  private FirebaseAuth firebaseAuth;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -31,17 +26,6 @@ public class HabitaActivity extends AppCompatActivity {
     applySystemBarsPadding();
     setupBackPressHandling();
     navController = getNavController();
-    firebaseAuth = FirebaseAuth.getInstance();
-  }
-
-  @Override
-  protected void onStart() {
-    super.onStart();
-    FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
-
-    if (firebaseUser == null) {
-      navigateToAuthenticationIfNeeded();
-    }
   }
 
   private void applySystemBarsPadding() {
@@ -70,13 +54,5 @@ public class HabitaActivity extends AppCompatActivity {
     NavHostFragment navHostFragment =
         (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.nav_host_fragment);
     return navHostFragment != null ? navHostFragment.getNavController() : null;
-  }
-
-  private void navigateToAuthenticationIfNeeded() {
-    if (Objects.requireNonNull(navController.getCurrentDestination()).getId()
-        != R.id.authentication) {
-      NavOptions navOptions = new NavOptions.Builder().setPopUpTo(R.id.home, true).build();
-      navController.navigate(R.id.action_home_to_authentication, null, navOptions);
-    }
   }
 }

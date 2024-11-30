@@ -12,13 +12,16 @@ import seifemadhamdy.habita.domain.usecases.ValidateEmailUseCase;
 import seifemadhamdy.habita.domain.usecases.ValidatePasswordUseCase;
 
 public class AuthenticationViewModel extends ViewModel {
+  private final FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+
+  private final MutableLiveData<FirebaseUser> firebaseUser =
+      new MutableLiveData<>(firebaseAuth.getCurrentUser());
+
   private final ValidateEmailUseCase validateEmailUseCase;
   private final ValidatePasswordUseCase validatePasswordUseCase;
   private final MutableLiveData<String> email = new MutableLiveData<>();
   private final MutableLiveData<String> password = new MutableLiveData<>();
   private final MutableLiveData<String> errorMessage = new MutableLiveData<>();
-  private final FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
-  private final MutableLiveData<FirebaseUser> firebaseUser = new MutableLiveData<>();
 
   public AuthenticationViewModel(
       ValidateEmailUseCase validateEmailUseCase, ValidatePasswordUseCase validatePasswordUseCase) {
