@@ -76,7 +76,6 @@ public class HabitaActivity extends AppCompatActivity {
     if (Objects.requireNonNull(navController.getCurrentDestination()).getId()
         != R.id.authentication) {
       NavOptions navOptions = new NavOptions.Builder().setPopUpTo(R.id.home, true).build();
-
       navController.navigate(R.id.action_home_to_authentication, null, navOptions);
     }
   }
